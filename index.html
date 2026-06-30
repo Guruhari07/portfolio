@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guruhari | Portfolio</title>
+  <meta name="description" content="Portfolio of Guruhari - Aspiring Full Stack Developer. Digital universe of web experiences.">
+  <link rel="stylesheet" href="index.css">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-circle" id="cursor-circle"></div>
+
+  <!-- Cosmic Canvas Starfield Background -->
+  <canvas id="cosmic-canvas"></canvas>
+
+  <!-- Ambient YouTube Sound Player Controller -->
+  <div class="synth-widget expanded" id="synth-widget">
+    <button class="synth-toggle-btn" id="synth-toggle" aria-label="Toggle Music Player">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <div class="synth-panel glass-panel">
+      <div class="synth-header">
+        <i class="fa-solid fa-music spin-icon" id="synth-disc"></i>
+        <span class="synth-header-title">Cosmic Drift II</span>
+      </div>
+      <div class="synth-controls">
+        <button class="synth-btn play-btn" id="synth-play" aria-label="Play Music"><i class="fa-solid fa-play"></i></button>
+        <button class="synth-btn stop-btn" id="synth-stop" aria-label="Pause Music"><i class="fa-solid fa-pause"></i></button>
+        <button class="synth-btn" id="synth-mute" aria-label="Mute Audio"><i class="fa-solid fa-volume-xmark"></i></button>
+      </div>
+      <div class="synth-waves-container">
+        <div class="synth-waves">
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+          <span class="wave-bar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden YouTube Player Container -->
+  <div id="youtube-player" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></div>
+
+  <!-- Futuristic Terminal Visitor Counter -->
+  <div class="visitor-widget glass-panel">
+    <div class="widget-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="widget-title">CONN_MONITOR.sys</span>
+    </div>
+    <div class="widget-body">
+      <div class="terminal-line"><span class="term-prompt">></span> NET_ADDR: REMOTE_NODE</div>
+      <div class="terminal-line"><span class="term-prompt">></span> VISITORS: <span id="visitor-count" class="glow-text-cyan">000000</span></div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar glass-panel">
+    <div class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-atom"></i></span>
+      <span class="logo-text">GURUHARI</span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#mission">Mission</a>
+      <a href="#activity">Activity</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Learning Journey</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="scroll-container">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content grid-container">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Guruhari</h1>
+          <h2 class="hero-subtitle text-gradient">Aspiring Full Stack Developer</h2>
+          <p class="hero-desc">Building Modern Web Experiences Through Code, Creativity, and Continuous Learning.</p>
+          
+          <!-- Typing effect -->
+          <div class="typing-container">
+            <span class="typing-prompt">> </span>
+            <span id="typing-text" class="typing-text"></span>
+            <span class="typing-cursor">_</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary magnetic">
+              <span>INITIATE CONTACT</span>
+              <i class="fa-solid fa-satellite-dish"></i>
+            </a>
+            <a href="#about" class="btn btn-secondary magnetic">
+              <span>ENTER CORE</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-block">
+          <div class="hologram-viewport">
+            <div class="holo-ring outer"></div>
+            <div class="holo-ring inner"></div>
+            <div class="holo-scanlines"></div>
+            <div class="profile-container">
+              <img src="assets/guruhari.jpg" alt="Guruhari" class="profile-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">01 //</span> ABOUT ME</h2>
+        <div class="grid-container about-grid">
+          
+          <div class="about-card glass-panel flex-col">
+            <div class="card-glow"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-user-astronaut text-accent-cyan"></i>
+              <h3>IDENTITY_PROFILE</h3>
+            </div>
+            <p class="about-text">
+              Aspiring Web Developer and Technology Enthusiast currently pursuing Computer Science Engineering. 
+              Passionate about building modern web applications, exploring emerging technologies, and continuously learning new tools to create impactful digital experiences.
+            </p>
+            
+            <div class="identity-table">
+              <div class="table-row">
+                <span class="label">CURRENT_LOC:</span>
+                <span class="value"><i class="fa-solid fa-location-dot"></i> Chennai, Tamil Nadu, India</span>
+              </div>
+              <div class="table-row">
+                <span class="label">CURRENT_DEGREE:</span>
+                <span class="value"><i class="fa-solid fa-graduation-cap"></i> B.E. Computer Science & Eng.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-stats glass-panel">
+            <div class="card-glow purple"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-chart-line text-accent-purple"></i>
+              <h3>CORE_METRICS</h3>
+            </div>
+            <div class="stat-grid">
+              <div class="stat-box">
+                <div class="stat-value text-gradient-cyan">95%</div>
+                <div class="stat-label">Adaptability</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value text-gradient-purple">70%</div>
+                <div class="stat-label">Problem Solving</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value text-gradient-cyan">85%</div>
+                <div class="stat-label">Fast Learning</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value text-gradient-purple">100%</div>
+                <div class="stat-label">Curiosity</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">02 //</span> SKILLS NEURAL NET</h2>
+        <p class="section-subtitle">Interact with the 3D Cosmic Galaxy. Drag to rotate, hover to scan technology nodes.</p>
+        
+        <div class="skills-galaxy-wrapper glass-panel">
+          <div class="card-glow"></div>
+          <div class="skills-canvas-container">
+            <canvas id="skills-canvas"></canvas>
+            
+            <!-- Floating Skill Details Display (HUD) -->
+            <div class="hud-panel" id="skill-hud">
+              <div class="hud-header">
+                <i class="fa-solid fa-satellite"></i>
+                <span>NODE_SCANNER</span>
+              </div>
+              <div class="hud-content">
+                <div id="hud-default-text">HOVER NODE TO TRANSMIT DATA</div>
+                <div id="hud-active-text" class="hidden">
+                  <h4 id="hud-skill-name" class="glow-text-cyan">SKILL_NAME</h4>
+                  <div class="hud-meta">
+                    <span>SECTOR: <span id="hud-skill-type">FRONTEND</span></span>
+                  </div>
+                  <div class="hud-progress-container">
+                    <div class="hud-progress-label">INTEGRATION LEVEL: <span id="hud-skill-percent">0%</span></div>
+                    <div class="hud-progress-bar-bg">
+                      <div class="hud-progress-bar-fill" id="hud-skill-fill"></div>
+                    </div>
+                  </div>
+                  <div class="hud-status-pulse">
+                    <span class="pulse-dot"></span>
+                    <span id="hud-skill-status">STABLE_CONNECTION</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT MISSION SECTION -->
+    <section id="mission" class="mission-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">03 //</span> CURRENT MISSION</h2>
+        
+        <div class="grid-container mission-grid">
+          
+          <!-- Learning Journey Card -->
+          <div class="mission-card glass-panel flex-col">
+            <div class="card-glow cyan"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-compass-drafting text-accent-cyan"></i>
+              <h3>LEARNING_JOURNEY</h3>
+            </div>
+            <div class="mission-badges-list">
+              <div class="tech-badge-item"><i class="fa-brands fa-js tech-icon"></i> <span>JavaScript</span></div>
+              <div class="tech-badge-item"><i class="fa-brands fa-react tech-icon"></i> <span>React</span></div>
+              <div class="tech-badge-item"><i class="fa-solid fa-rocket tech-icon"></i> <span>Next.js</span></div>
+              <div class="tech-badge-item"><i class="fa-brands fa-node-js tech-icon"></i> <span>Node.js</span></div>
+              <div class="tech-badge-item"><i class="fa-solid fa-server tech-icon"></i> <span>Express.js</span></div>
+              <div class="tech-badge-item"><i class="fa-solid fa-database tech-icon"></i> <span>MongoDB</span></div>
+            </div>
+          </div>
+
+          <!-- Space Station Panel - Goal -->
+          <div class="mission-card glass-panel flex-col justify-between">
+            <div class="card-glow purple"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-circle-nodes text-accent-purple"></i>
+              <h3>CORE_OBJECTIVES</h3>
+            </div>
+            
+            <div class="objective-box" style="margin-bottom: 0;">
+              <h4 class="objective-title"><i class="fa-solid fa-crosshairs text-accent-purple"></i> CURRENT_GOAL:</h4>
+              <p class="objective-text">
+                Become a Professional Full Stack Developer capable of building scalable, performant, and highly impactful web applications.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPER ACTIVITY SECTION -->
+    <section id="activity" class="activity-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">04 //</span> ACTIVITY</h2>
+        <p class="section-subtitle">Real-time stats from <a href="https://github.com/Guruhari07" target="_blank" rel="noopener noreferrer" class="link-glow">github.com/Guruhari07</a></p>
+        
+        <div class="activity-dashboard glass-panel">
+          <div class="card-glow"></div>
+          <div class="dashboard-grid">
+            
+            <!-- Stats Panel -->
+            <div class="db-panel stats-panel">
+              <div class="panel-header-sub">SYS_METADATA</div>
+              <div class="meta-stats-list">
+                <div class="meta-stat-item">
+                  <span class="meta-label">TOTAL_REPOS:</span>
+                  <span class="meta-value text-accent-cyan">06</span>
+                </div>
+                <div class="meta-stat-item">
+                  <span class="meta-label">ACTIVE_PROJECTS:</span>
+                  <span class="meta-value text-accent-purple">04</span>
+                </div>
+                <div class="meta-stat-item">
+                  <span class="meta-label">PRIMARY_ENGINE:</span>
+                  <span class="meta-value text-accent-cyan">JavaScript / Node</span>
+                </div>
+                <div class="meta-stat-item">
+                  <span class="meta-label">NETWORK_PING:</span>
+                  <span class="meta-value glow-text-green">ONLINE // 24ms</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contribution Graph Panel -->
+            <div class="db-panel graph-panel flex-col">
+              <div class="panel-header-sub">HOLOGRAPHIC_CONTRIBUTION_MATRIX</div>
+              <div class="matrix-grid-container">
+                <div class="matrix-grid" id="matrix-grid">
+                  <!-- Generating Grid Squares in JS -->
+                </div>
+              </div>
+              <div class="matrix-legend">
+                <span>LESS_ACTIVE</span>
+                <span class="legend-cell level-0"></span>
+                <span class="legend-cell level-1"></span>
+                <span class="legend-cell level-2"></span>
+                <span class="legend-cell level-3"></span>
+                <span class="legend-cell level-4"></span>
+                <span>DEEP_ORBITAL_WORK</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">05 //</span> PROJECTS</h2>
+        
+        <div class="grid-container projects-grid">
+          
+          <!-- Project 1: Expense Manager -->
+          <div class="project-card-wrapper">
+            <div class="project-card glass-panel" data-tilt>
+              <div class="card-glow cyan"></div>
+              <div class="project-index">PROJ_01</div>
+              <h3 class="project-title glow-text-cyan">EXPENSE MANAGER</h3>
+              <p class="project-desc">A Progressive Web Application designed to track income and expenses efficiently with a clean, fluid, and user-friendly experience.</p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">PWA</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-project" disabled><i class="fa-solid fa-code-branch"></i> OFFLINE_PORTAL</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Career Craft -->
+          <div class="project-card-wrapper">
+            <div class="project-card glass-panel" data-tilt>
+              <div class="card-glow purple"></div>
+              <div class="project-index">PROJ_02</div>
+              <h3 class="project-title glow-text-purple">CAREER CRAFT</h3>
+              <p class="project-desc">An all-in-one career development platform featuring a Resume Analyzer, Keyword Finder, Profile Enhancer, and Interview Trainer.</p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-project" disabled><i class="fa-solid fa-code-branch"></i> OFFLINE_PORTAL</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Upcoming Placeholder -->
+          <div class="project-card-wrapper">
+            <div class="project-card glass-panel placeholder-node">
+              <div class="project-index">PROJ_03</div>
+              <h3 class="project-title glow-text-white"><i class="fa-solid fa-lock"></i> DECRYPTING...</h3>
+              <p class="project-desc">Upcoming project space. System components are being assembled. Neural connections established in the future.</p>
+              <div class="hologram-loader">
+                <div class="loader-line"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Upcoming Placeholder -->
+          <div class="project-card-wrapper">
+            <div class="project-card glass-panel placeholder-node">
+              <div class="project-index">PROJ_04</div>
+              <h3 class="project-title glow-text-white"><i class="fa-solid fa-lock"></i> DECRYPTING...</h3>
+              <p class="project-desc">Upcoming project space. System components are being assembled. Neural connections established in the future.</p>
+              <div class="hologram-loader">
+                <div class="loader-line"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="journey" class="journey-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">06 //</span> LEARNING JOURNEY</h2>
+        
+        <div class="timeline-container">
+          <div class="timeline-line-center"></div>
+
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item left scroll-reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-panel">
+              <div class="card-glow cyan"></div>
+              <span class="timeline-date">CURRENT_ORBIT</span>
+              <h3 class="timeline-title glow-text-cyan">Computer Science Engineering Student</h3>
+              <p class="timeline-desc">Pursuing B.E. Computer Science and Engineering while actively developing practical skills through projects and self-learning.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item right scroll-reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-panel">
+              <div class="card-glow purple"></div>
+              <span class="timeline-date">ONGOING_PHASE</span>
+              <h3 class="timeline-title glow-text-purple">Web Development Learning Journey</h3>
+              <p class="timeline-desc">Continuously learning and building projects using modern web technologies including React, Next.js, Node.js, Express.js, and MongoDB.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">07 //</span> CERTIFICATIONS</h2>
+        
+        <div class="grid-container cert-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card glass-panel">
+            <div class="card-glow cyan"></div>
+            <div class="cert-vault-door">
+              <i class="fa-solid fa-shield-halved cert-icon"></i>
+              <div class="cert-status">VAULT_LOCK // 01</div>
+            </div>
+            <div class="cert-details">
+              <h4 class="cert-title">CREDENTIAL_SPACE_01</h4>
+              <p class="cert-desc">Reserved for verified certification nodes. Ready for encryption keys.</p>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card glass-panel">
+            <div class="card-glow purple"></div>
+            <div class="cert-vault-door">
+              <i class="fa-solid fa-shield-halved cert-icon"></i>
+              <div class="cert-status">VAULT_LOCK // 02</div>
+            </div>
+            <div class="cert-details">
+              <h4 class="cert-title">CREDENTIAL_SPACE_02</h4>
+              <p class="cert-desc">Reserved for verified certification nodes. Ready for encryption keys.</p>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card glass-panel">
+            <div class="card-glow cyan"></div>
+            <div class="cert-vault-door">
+              <i class="fa-solid fa-shield-halved cert-icon"></i>
+              <div class="cert-status">VAULT_LOCK // 03</div>
+            </div>
+            <div class="cert-details">
+              <h4 class="cert-title">CREDENTIAL_SPACE_03</h4>
+              <p class="cert-desc">Reserved for verified certification nodes. Ready for encryption keys.</p>
+            </div>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card glass-panel">
+            <div class="card-glow purple"></div>
+            <div class="cert-vault-door">
+              <i class="fa-solid fa-shield-halved cert-icon"></i>
+              <div class="cert-status">VAULT_LOCK // 04</div>
+            </div>
+            <div class="cert-details">
+              <h4 class="cert-title">CREDENTIAL_SPACE_04</h4>
+              <p class="cert-desc">Reserved for verified certification nodes. Ready for encryption keys.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section scroll-reveal">
+      <div class="section-container">
+        <h2 class="section-title"><span class="title-index">08 //</span> CONTACT</h2>
+        
+        <div class="grid-container contact-grid">
+          
+          <!-- Contact Info -->
+          <div class="contact-info glass-panel">
+            <div class="card-glow cyan"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-satellite text-accent-cyan"></i>
+              <h3>TRANSCEIVER_COORDS</h3>
+            </div>
+            <p class="contact-intro">Select coordinates below</p>
+            
+            <div class="coords-list">
+              <a href="mailto:guruhari1357@gmail.com" class="coord-item link-glow">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="coord-details">
+                  <span class="coord-label">EMAIL_LINK</span>
+                  <span class="coord-val">guruhari1357@gmail.com</span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/guruhari-496w" target="_blank" rel="noopener noreferrer" class="coord-item link-glow">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <div class="coord-details">
+                  <span class="coord-label">LINKEDIN_ADDR</span>
+                  <span class="coord-val">linkedin.com/in/guruhari-496w</span>
+                </div>
+              </a>
+              <a href="https://github.com/Guruhari07" target="_blank" rel="noopener noreferrer" class="coord-item link-glow">
+                <i class="fa-brands fa-github"></i>
+                <div class="coord-details">
+                  <span class="coord-label">GITHUB_HANDLE</span>
+                  <span class="coord-val">github.com/Guruhari07</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-panel glass-panel">
+            <div class="card-glow purple"></div>
+            <div class="panel-header">
+              <i class="fa-solid fa-terminal text-accent-purple"></i>
+              <h3>TRANSMIT_FORM</h3>
+            </div>
+            <form id="contact-form" class="contact-form" onsubmit="event.preventDefault(); return false;">
+              <div class="form-group">
+                <div class="input-wrapper">
+                  <input type="text" id="form-name" required placeholder="Name">
+                  <span class="input-glow"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-wrapper">
+                  <input type="email" id="form-email" required placeholder="Email">
+                  <span class="input-glow"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-wrapper">
+                  <textarea id="form-message" rows="5" required placeholder="Message"></textarea>
+                  <span class="input-glow"></span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit magnetic" id="btn-submit">
+                <span>INITIATE TRANSMISSION</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+            <div id="form-response" class="form-response hidden">
+              <div class="response-box glass-panel">
+                <span class="response-icon"><i class="fa-solid fa-circle-check glow-text-green"></i></span>
+                <div class="response-text">
+                  <h4 class="glow-text-green">PAYLOAD_TRANSMITTED_SUCCESSFULLY</h4>
+                  <p>Encrypted channel status: ACK // Standard callback scheduled.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>GURUHARI // ORBITAL TIME: <span id="current-year">2026</span></p>
+      <p class="footer-system-status">SYSTEM STATUS: ACTIVE</p>
+    </div>
+  </footer>
+
+  <script type="module" src="index.js"></script>
+</body>
+</html>
