@@ -3,71 +3,13 @@
    Client: Guruhari
    ========================================================================== */
 
-// ==========================================
-// YOUTUBE PLAYER — Global scope to avoid
-// timing race with async YT iframe API load
-// ==========================================
-const TRACK_ID    = 'nL-6P0x_N-E'; // Space Ambient Music (Cosmic Drift II)
-let ytPlayerReady  = false;
-let ytPlaying      = false;
-let ytMuted        = true;          // muted by default
 
-window.onYouTubeIframeAPIReady = function () {
-  window.ytPlayer = new YT.Player('youtube-player', {
-    height: '1',
-    width:  '1',
-    videoId: TRACK_ID,
-    playerVars: {
-      autoplay:       0,
-      controls:       0,
-      disablekb:      1,
-      fs:             0,
-      rel:            0,
-      modestbranding: 1,
-      loop:           1,
-      playlist:       TRACK_ID   // required for loop to work
-    },
-    events: {
-      onReady:       onPlayerReady,
-      onStateChange: onPlayerStateChange
-    }
-  });
-};
-
-function onPlayerReady () {
-  ytPlayerReady = true;
-  window.ytPlayer.mute();           // start muted
-  updateMuteIcon();
-}
-
-function onPlayerStateChange (e) {
-  const widget = document.getElementById('synth-widget');
-  if (e.data === YT.PlayerState.PLAYING) {
-    ytPlaying = true;
-    if (widget) widget.classList.add('playing');
-  } else {
-    ytPlaying = false;
-    if (widget) widget.classList.remove('playing');
-  }
-}
-
-function updateMuteIcon () {
-  const btn = document.getElementById('synth-mute');
-  if (!btn) return;
-  btn.innerHTML = ytMuted
-    ? '<i class="fa-solid fa-volume-xmark"></i>'
-    : '<i class="fa-solid fa-volume-high"></i>';
-}
 
 // ==========================================
 // DOM READY
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Inject YouTube API script ──────────────────────────────────────────
-  const ytScript = document.createElement('script');
-  ytScript.src   = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(ytScript);
 
 
   // ==========================================
@@ -823,63 +765,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(pulse, 10000);
   }
 
-
-  // ==========================================
-  // 6. MUSIC PLAYER CONTROLS (Play / Stop / Mute / Toggle)
-  // ==========================================
-  const playBtn = document.getElementById('synth-play');
-  const stopBtn = document.getElementById('synth-stop');
-  const muteBtn = document.getElementById('synth-mute');
-  const toggleBtn = document.getElementById('synth-toggle');
-  const synthWidget = document.getElementById('synth-widget');
-
-  if (toggleBtn && synthWidget) {
-    toggleBtn.addEventListener('click', () => {
-      synthWidget.classList.toggle('expanded');
-      const icon = toggleBtn.querySelector('i');
-      if (synthWidget.classList.contains('expanded')) {
-        icon.classList.remove('fa-chevron-left');
-        icon.classList.add('fa-chevron-right');
-      } else {
-        icon.classList.remove('fa-chevron-right');
-        icon.classList.add('fa-chevron-left');
-      }
-    });
-  }
-
-  if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      if (!ytPlayerReady || !window.ytPlayer) return;
-      // unmute on first play so user hears something
-      if (ytMuted) {
-        window.ytPlayer.unMute();
-        ytMuted = false;
-        updateMuteIcon();
-      }
-      window.ytPlayer.playVideo();
-    });
-  }
-
-  if (stopBtn) {
-    stopBtn.addEventListener('click', () => {
-      if (!ytPlayerReady || !window.ytPlayer) return;
-      window.ytPlayer.pauseVideo();
-    });
-  }
-
-  if (muteBtn) {
-    muteBtn.addEventListener('click', () => {
-      if (!ytPlayerReady || !window.ytPlayer) return;
-      if (ytMuted) {
-        window.ytPlayer.unMute();
-        ytMuted = false;
-      } else {
-        window.ytPlayer.mute();
-        ytMuted = true;
-      }
-      updateMuteIcon();
-    });
-  }
 
 
   // ==========================================

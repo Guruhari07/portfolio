@@ -320,105 +320,7 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
 }
 
-/* ── MUSIC PLAYER HUD WIDGET ──────────────────────────────────────────────── */
-.synth-widget {
-  position: fixed;
-  bottom: 20px;
-  right: -200px;
-  z-index: 200;
-  width: 200px;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  align-items: center;
-}
-.synth-widget.expanded {
-  right: 0;
-}
-.synth-toggle-btn {
-  background: var(--bg-panel);
-  border: 1px solid var(--border-glass);
-  border-right: none;
-  border-radius: 8px 0 0 8px;
-  color: var(--text-secondary);
-  padding: 12px 6px;
-  cursor: pointer;
-  backdrop-filter: blur(14px);
-  transition: var(--transition-fast);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.3);
-}
-.synth-toggle-btn:hover {
-  color: var(--text-primary);
-  background: var(--bg-panel-hover);
-}
-.synth-panel {
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-radius: 0 0 0 8px;
-  flex: 1;
-}
-.synth-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  padding-bottom: 6px;
-}
-.spin-icon {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  animation: logo-spin 3s linear infinite;
-  animation-play-state: paused;
-}
-.synth-widget.playing .spin-icon {
-  animation-play-state: running;
-  color: var(--accent-cyan);
-}
-.synth-header-title {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-secondary);
-  letter-spacing: 1.5px;
-}
-.synth-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-}
-.synth-btn {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  transition: var(--transition-fast);
-  padding: 4px;
-  cursor: pointer;
-}
-.synth-btn:hover   { color: var(--text-primary); text-shadow: 0 0 8px var(--text-primary); }
-.synth-btn.play-btn        { font-size: 1rem; color: var(--accent-cyan); }
-.synth-btn.play-btn:hover  { color: var(--text-primary); text-shadow: 0 0 8px var(--accent-cyan); }
-.synth-btn.stop-btn        { font-size: 1rem; color: var(--accent-purple); }
-.synth-btn.stop-btn:hover  { color: var(--text-primary); text-shadow: 0 0 8px var(--accent-purple); }
-.synth-waves-container { display: flex; justify-content: center; height: 12px; }
-.synth-waves { display: flex; align-items: flex-end; gap: 3px; height: 100%; }
-.wave-bar {
-  width: 2px; height: 2px;
-  background-color: var(--text-muted);
-  border-radius: 1px;
-  transition: height 0.3s;
-}
-.synth-widget.playing .wave-bar {
-  background-color: var(--accent-cyan);
-  animation: wave-bounce 1s infinite alternate;
-}
-.synth-widget.playing .wave-bar:nth-child(2) { animation-delay: 0.15s; }
-.synth-widget.playing .wave-bar:nth-child(3) { animation-delay: 0.3s; }
-.synth-widget.playing .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+
 
 /* ── VISITOR TERMINAL WIDGET ──────────────────────────────────────────────── */
 .visitor-widget {
@@ -1067,8 +969,6 @@ img { max-width: 100%; display: block; }
   .profile-container { width: 155px; height: 155px; }
   .holo-scanlines    { width: 155px; height: 155px; }
 
-  /* Widgets — stack at the bottom center on mobile */
-  .synth-widget,
   .visitor-widget {
     position: fixed;
     width: auto;
@@ -1081,11 +981,7 @@ img { max-width: 100%; display: block; }
     padding: 8px 10px;
   }
   .visitor-widget .widget-title { display: none; }
-  .synth-widget {
-    right: 8px;
-    bottom: 8px;
-    width: 145px;
-  }
+
 
   /* Certs */
   .cert-grid { grid-template-columns: 1fr 1fr; }
@@ -1132,7 +1028,7 @@ img { max-width: 100%; display: block; }
 
   .visitor-widget { width: 145px; padding: 7px 10px; }
   .visitor-widget .terminal-line:first-child { display: none; }
-  .synth-widget { width: 130px; }
+
 
   /* Compact matrix */
   .matrix-grid { gap: 2.5px; min-width: 440px; }
